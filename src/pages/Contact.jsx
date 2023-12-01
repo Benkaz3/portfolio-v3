@@ -13,10 +13,16 @@ export default function Contact() {
       <Paragraph>Got a question? Or just say hi!</Paragraph>
       <ContactForm />
       <SocialIconContainer>
-          <LinkIcon href="#" >
+          <LinkIcon 
+            href="https://www.linkedin.com/in/dungtran83/"
+            target="_blank" 
+            rel="noopener noreferrer">
             <FaLinkedin />
           </LinkIcon>
-          <LinkIcon href="#" >
+          <LinkIcon 
+            href="https://github.com/Benkaz3" 
+            target="_blank" 
+            rel="noopener noreferrer">
             <FaGithub />
           </LinkIcon>
       </SocialIconContainer>
