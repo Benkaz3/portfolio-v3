@@ -47,7 +47,7 @@ const LinkIcon = styled.a`
 
   &:hover,
   &:focus {
-    color: ${theme.colors.accent};
+    color: #ff6b08;
     scale: 1.2;
   }
 `
