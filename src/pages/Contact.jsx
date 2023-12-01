@@ -8,7 +8,7 @@ import Container from "../components/Container";
 
 export default function Contact() {
   return (
-    <ContactContainer>
+    <Container>
       <Heading level={1}>Contact</Heading>
       <Paragraph>Got a question? Or just say hi!</Paragraph>
       <ContactForm />
@@ -20,13 +20,10 @@ export default function Contact() {
             <FaGithub />
           </LinkIcon>
       </SocialIconContainer>
-    </ContactContainer>
+    </Container>
   );
 }
 
-const ContactContainer = styled(Container)`
-  max-width: 768px; 
-`
 
 const SocialIconContainer = styled.div`
   color: ${theme.colors.primaryText};
