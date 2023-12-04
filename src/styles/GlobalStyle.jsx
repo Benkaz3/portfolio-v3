@@ -1,5 +1,4 @@
 import { createGlobalStyle } from 'styled-components';
-import theme from './theme';
 import { normalize } from 'styled-normalize';
 
 const GlobalStyle = createGlobalStyle`
@@ -12,22 +11,22 @@ const GlobalStyle = createGlobalStyle`
   }
 
   html {
-    font-size: ${theme.fontSize.font16};
+    font-size: ${props => props.theme.fontSize.font16};
     scroll-behavior: smooth;
   }
 
 
   body {
-    font-family: ${theme.fontRoboto};
-    font-size: 16px; 
-    font-weight: ${theme.fontWeight.regular};
-    line-height: ${theme.lineHeight.default};
-    color: ${theme.colors.primaryText};
-    background-color: ${theme.colors.primaryBackground};
+    font-family: ${props => props.theme.fontRoboto};
+    font-size: ${props =>  props.theme.fontSize.font16}; 
+    font-weight: ${props => props.theme.fontWeight.regular};
+    line-height: ${props => props.theme.lineHeight.default};
+    color: ${props => props.theme.colors.text};
+    background-color: ${props => props.theme.colors.backgroundPrimary};
   }
 
   h1, h2, h3, h4, h5, h6, button {
-    font-family: ${theme.fontRoboto};
+    font-family: inherit;
   }
 
   a {

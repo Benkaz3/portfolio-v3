@@ -1,26 +1,17 @@
-import {
-  HomeContainer,
-  StyledHome,
-  HeroText,
-  IntroText,
-  TechStack
-} from "../styles/Home.styled";
-import { motion, AnimatePresence } from "framer-motion";
+import styled from "styled-components";
+import { breakpoints } from "../styles/theme";
+import { AnimatePresence } from "framer-motion";
 import { useState, useEffect, useRef } from "react";
 import content from "../assets/content";
-import {
-  FaEnvira,
-  FaReact,
-  FaJs,
-  FaHtml5,
-  FaCss3Alt,
-  FaNodeJs,
-} from "react-icons/fa6";
+import { FaEnvira, FaReact, FaJs, FaHtml5, FaCss3Alt, FaNodeJs } from "react-icons/fa6";
 import { SiExpress } from "react-icons/si";
 import Button from "../components/Button/Button";
+import Container from "../components/Container";
+import ShuffleText from "../components/ShuffleText";
+import TechItem from "../components/TechItem";
 
 export default function Home() {
-  const skills = ["APPS.", "WEBS.", "STUFF."];
+  const skills = ["APPS.", "WEBS.", "WARES."];
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
 
@@ -39,12 +30,6 @@ export default function Home() {
     return () => clearInterval(intervalRef.current);
   }, []);
 
-  const SkillVariants = {
-    hidden: { opacity: 0, y: 10 },
-    visible: { opacity: 1, y: -1 },
-    exit: { opacity: 0, y: -10 },
-    transition: { delay: 0.1, duration: 0.2, ease: "easeInOut" },
-  };
 
   const getCurrentSkill = () => skills[currentIndex];
 
@@ -60,42 +45,64 @@ export default function Home() {
 
   return (
     <HomeContainer> 
-      <StyledHome>
         <HeroText>
-          <h1>
-            I build
             <AnimatePresence mode="wait">
-              <motion.div
-                className="shuffle-text-container"
-                key={getCurrentSkill()}
-                variants={SkillVariants}
-                initial="hidden"
-                animate="visible"
-                exit="exit"
-                transition="transition"
-              >
-                <p className="hero-text">{getCurrentSkill()}</p>
-              </motion.div>
+              <ShuffleText text={ getCurrentSkill() } />
             </AnimatePresence>
-          </h1>
         </HeroText>
         <IntroText>
           <p>{content.author.heroPara}</p>
         </IntroText>
         <TechStack>
           {techStack.map(({ icon: Icon, color, name }, index) => (
-            <div key={index}>
-              <Icon className="tech-logo" style={{ color }} />
-              <p>{name}</p>
-            </div>
+            <TechItem key={index} Icon={Icon} color={color} name={name} />
           ))}
         </TechStack>
-        <Button to="contact">
-          Say hello
-        </Button>
-      </StyledHome>
+        <Button to="contact">Say hello</Button>
     </HomeContainer>
   );
 }
 
-{/* <span>&rarr;</span> */}
+// styles
+const HomeContainer = styled(Container)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 90vh;
+  margin-top: 70px; 
+`
+
+const HeroText = styled.div`
+  text-align: center;
+  h1 {
+    font-size: ${props => props.theme.fontSize.font24};
+    margin: 0;
+
+    ${breakpoints.mobileL`
+    font-size: 20px;
+  `}
+  }
+`;
+
+const IntroText = styled.p`
+  font-size: 2rem;
+  margin: 2rem 0;
+  color: ${props => props.theme.colors.primaryText};
+  text-align: center;
+
+  ${breakpoints.tabletL`
+    font-size: 1.5rem;
+  `}
+  ${breakpoints.mobileL`
+    font-size: 1.2rem;
+  `}
+`;
+
+const TechStack = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  justify-content: center;
+  padding: 2rem auto;
+  align-items: center;
+`;

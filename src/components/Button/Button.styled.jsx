@@ -1,28 +1,7 @@
 import styled, { css } from "styled-components";
 import { Link } from "react-router-dom"
+import { breakpoints } from "../../styles/theme";
 
-const media = {
-  tablet: (...args) => css`
-    @media (max-width: 768px) {
-      ${css(...args)}
-    }
-  `,
-  mobileL: (...args) => css`
-  @media (max-width: 425px) {
-    ${css(...args)}
-  }
-  `,
-  mobileM: (...args) => css`
-  @media (max-width: 375px) {
-    ${css(...args)}
-  }
-  `,
-  mobileS: (...args) => css`
-  @media (max-width: 320px) {
-    ${css(...args)}
-  }
-`
-};
 
 export const StyledButton = styled(Link)`
   background-clip: padding-box;
@@ -47,7 +26,7 @@ export const StyledButton = styled(Link)`
   -webkit-user-select: none;
   touch-action: manipulation;
   vertical-align: baseline;
-  margin: 2rem auto; 
+  margin: 2rem 0; 
   
   &:hover,
   &:focus {
@@ -65,15 +44,10 @@ export const StyledButton = styled(Link)`
     transform: translateY(0);
   }
 
-  ${media.tablet`
+  ${breakpoints.mobileL`
     font-size: 1rem;
-    padding: calc(.875rem - 1px) calc(1.7rem - 1px);
+    width: 100%; 
   `}
-  ${media.mobileL`
-    width: auto;
-    margin: 2rem 0;
-    font-size: 1rem;
-    padding: calc(.875rem - 1px) calc(1.7rem - 1px);
-  `}
-  
 `
+
+

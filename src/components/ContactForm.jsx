@@ -112,7 +112,7 @@ margin: 20px auto;
 const Input = styled.input`
 width: 100%;
 padding: 0.5rem;
-border: 1px solid ${theme.colors.lineColor};
+border: 1px solid ${props => props.theme.colors.secondary};
 border-radius: .25rem;
 font-family: inherit;
 font-size: 1.2rem;
@@ -122,7 +122,7 @@ margin-bottom: 1rem;
 const Textarea = styled.textarea`
 width: 100%;
 padding: 0.5rem;
-border: 1px solid ${theme.colors.lineColor};
+border: 1px solid ${props => props.theme.colors.secondary};
 border-radius: 0.25rem;
 font-family: inherit;
 font-size: 1.2rem;

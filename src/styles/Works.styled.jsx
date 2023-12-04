@@ -29,7 +29,7 @@ export const CardWrapper = styled.div`
   flex-direction: column;
   gap: ${theme.spacing.md};
   align-items: center;
-  background-color: ${theme.colors.secondaryBackground};
+  background-color: ${props => props.theme.colors.backgroundSecondary};
   text-align: center;
 
   ${media.laptop`
@@ -46,7 +46,7 @@ export const ProjectInfo = styled.div`
 export const Image = styled.img`
     width: 100%;
     object-fit: contain;
-    border-radius: ${theme.border.radiusMd};
+    border-radius: ${props => props.theme.borderRadius.medium};
 
     ${media.laptop`
       width: 50%; 
@@ -81,11 +81,11 @@ export const Technologies = styled.ul`
     color: ${theme.colors.primaryText};
     padding: 0.1em 0.7em;
     background-color: ${theme.colors.tagBackground};
-    border-radius: ${theme.border.technology};
+    border-radius: ${props => props.theme.borderRadius.nav};
     background: linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44);
     -webkit-text-fill-color: transparent;
     -webkit-background-clip: text;
-    border: 1px solid ${theme.colors.secondaryText};
+    border: 1px solid ${props => props.theme.colors.secondary};
       }
     }
 `

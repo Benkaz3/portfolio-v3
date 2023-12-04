@@ -1,16 +1,13 @@
+import { css } from "styled-components"
 const theme = {
     colors: {
-        secondaryBackground: '#f9f9f9',
-        primaryBackground: '#fff',
-        accent: '#0071e3',
-        accentTwo: '#b62c31',
-        hero: '#10505B',
-        buttonBackground: 'rgb(0, 125, 249)',
-        hoverBackground: '#238cf5',
-        tagBackground: '#86dbeae6',
-        secondaryText: '#86868c',
-        primaryText: 'rgba(29, 29, 31)',
-        lineColor: '#d5d5da',
+        primary: '#ff6b08',
+        secondary: `#b7b7b7`,
+        text: `#333`,
+        backgroundPrimary: `#F0F0F0FF`,
+        backgroundSecondary: `#e9e9e9`,
+        accent: `#333333`,
+
     },
     fontRoboto: `'Roboto', san-serif`,
     fontSize: {
@@ -24,19 +21,20 @@ const theme = {
         font42: '41px',
         font48: '48px',
         font96: '96px',
-        font192: '25vw',
+        font12r: '12rem',
     },
 
     fontWeight: {
         regular: '400',
         medium: '500',
         bold: '700',
-        extraBold: '900'
+        extraBold: '900',
     },
 
     lineHeight: {
         default: '1.7',
         heading: '1.2',
+        headingHero: '0.85',
     },
 
     letterSpacing: {
@@ -52,14 +50,13 @@ const theme = {
       xxl: '6em'
     },
   
-    border: {
-      technology: '16px',
-      radiusMd: '6px',
-      radiusSm: '4px',
-      navBorerRadius: '50px'
+    borderRadius: {
+      medium: '6px',
+      small: '4px',
+      nav: '50px'
     }, 
   
-    bp: {
+    breakpoints: {
       mobileS: `max-width: 330px`,
       mobileM: `max-width: 400px`,
       mobileL: `max-width: 480px`,
@@ -70,6 +67,34 @@ const theme = {
       desktopM: `max-width: 1200px`,
       desktopL: `max-width: 1400px`,
     },
+    
+    zIndex: {
+      header: 100,
+      modal: 200,
+      overlay: 150,
+    },
+
+    gradientText: {
+      background: 'linear-gradient(to right, #f32170, #ff6b08, #cf23cf, #eedd44)',
+      WebkitTextFillColor: 'transparent',
+      WebkitBackgroundClip: 'text',
+      transition: 'height 0.3s ease, color 0.3s ease, opacity 0.3s ease',
+    },
+
+    boxShadow: {
+      navBar: '',
+      card: '',
+    }
   };
   
-  export default theme;
+export default theme;
+
+// Utility function to generate media queries
+export const breakpoints = Object.keys(theme.breakpoints).reduce((acc, label) => {
+  acc[label] = (...args) => css`
+    @media screen and (${theme.breakpoints[label]}) {
+      ${css(...args)};
+    }
+  `;
+  return acc;
+}, {});

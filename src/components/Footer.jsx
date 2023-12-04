@@ -25,15 +25,15 @@ const StyledFooter = styled.div`
   }
 
   p {
-    font-size: ${theme.fontSize.font12};
+    font-size: ${props => props.theme.fontSize.font12};
   }
 
   p a {
-    color: ${theme.colors.accent};
+    color: ${props => props.theme.colors.primary};
   }
   .social-links {
     a {
-      color: ${theme.colors.primaryText};
+      color: ${props => props.theme.colors.text};
       &:visited {
         color: #ff6b08;
       }
