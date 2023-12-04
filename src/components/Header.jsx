@@ -61,7 +61,7 @@ export default function Header() {
         </StyledNavLink>
         
         <StyledNavLink 
-          to="/assets/dungTranResume.pdf"
+          to="/assets/resume.pdf"
           target="_blank" 
           rel="noopener noreferrer"
           >
