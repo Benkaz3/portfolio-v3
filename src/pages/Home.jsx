@@ -11,7 +11,7 @@ import ShuffleText from "../components/ShuffleText";
 import TechItem from "../components/TechItem";
 
 export default function Home() {
-  const skills = ["APPS.", "WEBS.", "WARES."];
+  const skills = ["APPS.", "WEBS.", "BOTS."];
   const [currentIndex, setCurrentIndex] = useState(0);
   const intervalRef = useRef(null);
 

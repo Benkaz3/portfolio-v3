@@ -14,6 +14,7 @@ import {
   FaNodeJs
 } from "react-icons/fa6";
 import {  SiExpress } from 'react-icons/si'
+import LazyLoad from 'react-lazyload';
 
 export default function About() {
   const techStack = [
@@ -43,7 +44,14 @@ export default function About() {
       </TechStack>
       <ImageContainer>
         <ImageOverlay>
-          <Headshot src={IMAGES.headshot} alt=""/>
+        <LazyLoad height={200} offset={100}>
+            <Headshot
+              src={IMAGES.headshot.small}
+              srcSet={`${IMAGES.headshot.small} 300w, ${IMAGES.headshot.medium} 768w, ${IMAGES.headshot.large} 1204w`}
+              sizes="(max-width: 524px) 100vw, (max-width: 768px) 80vw, (min-width: 1024px) 50vw"
+              alt="Headshot"
+            />
+          </LazyLoad>
         </ImageOverlay>
       </ImageContainer>
     </Container>

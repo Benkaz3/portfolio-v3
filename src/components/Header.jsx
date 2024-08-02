@@ -21,8 +21,8 @@ export default function Header() {
       <TopNav>
         <StyledLink to="/">
           <NameLogo>
-            <Name>Dung Tran</Name>
-            <Title>Web Developer</Title>
+            <Name>Dũng Trần</Name>
+            <Title>Marketer | Web Developer</Title>
           </NameLogo>
         </StyledLink>
         <StyledLink to="/">
@@ -60,14 +60,14 @@ export default function Header() {
             <span className="text">About</span>
         </StyledNavLink>
         
-        <StyledNavLink 
+        {/* <StyledNavLink 
           to="/assets/resume.pdf"
           target="_blank" 
           rel="noopener noreferrer"
           >
             <FaFilePdf className="icon resume"/>
             <span className="text">Resume</span>
-        </StyledNavLink>
+        </StyledNavLink> */}
       </NavMenu>
     </header>
   )

@@ -49,7 +49,7 @@ export const Image = styled.img`
     border-radius: ${props => props.theme.borderRadius.medium};
 
     ${media.laptop`
-      width: 50%; 
+      width: 100%; 
     `}
 `
 export const ProjectName = styled.h3`

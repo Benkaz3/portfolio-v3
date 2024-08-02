@@ -15,6 +15,7 @@ import { useInView } from "react-intersection-observer";
 import content from "../assets/content";
 import { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
+import LazyLoad from "react-lazyload";
 
 
 export default function Works() {
@@ -40,7 +41,14 @@ export default function Works() {
 
   const featureProjectElements = featuredProjects.map((project) => (
     <CardWrapper key={project.id}>
-      <Image src={project.image} alt="project screenshot" />
+      <LazyLoad height={200} offset={100}>
+      <Image 
+        src={project.imageSmall} 
+        srcSet={`${project.imageSmall} 300w, ${project.imageMedium} 768w, ${project.imageLarge} 1204w`} 
+        sizes="(max-width: 300px) 300px, (max-width: 768px) 768px, (min-width: 1204px) 1204px, 100vw" 
+        alt="project screenshot" 
+      />
+      </LazyLoad>
       <ProjectInfo className="project-info">
         <ProjectName>{project.name}</ProjectName>
         <ProjectDesc>{project.desc}</ProjectDesc>

@@ -109,7 +109,7 @@ export default function Footer() {
         </a>
         .
       </p>
-      <p>© 2023 Dung Tran</p>
+      <p>© 2023 Dũng Trần</p>
     </StyledFooter>
   );
 }
