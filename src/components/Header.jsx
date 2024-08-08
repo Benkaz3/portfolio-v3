@@ -8,6 +8,7 @@ import {
   FaTelegram,
   FaRocket,
   FaUser,
+  FaBlog,
   FaFilePdf,
 } from "react-icons/fa6";
 
@@ -58,6 +59,14 @@ export default function Header() {
           >
             <FaUser className="icon"/>
             <span className="text">About</span>
+        </StyledNavLink>
+
+        <StyledNavLink 
+          to="/blog"
+          style={({ isActive }) => isActive ? activeStyles : null}
+          >
+            <FaBlog className="icon"/>
+            <span className="text">Blog</span>
         </StyledNavLink>
         
         {/* <StyledNavLink 
